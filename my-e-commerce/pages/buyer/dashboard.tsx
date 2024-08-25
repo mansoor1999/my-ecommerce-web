@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
+import Link from 'next/link';
 
 interface Product {
   id: number;
@@ -12,7 +13,7 @@ interface Product {
   discount: number;
 }
 
-const BuyerDashboard: React.FC = () => {
+const BuyerDashboard: React.FC = (props) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [cart, setCart] = useState<number[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -23,9 +24,9 @@ const BuyerDashboard: React.FC = () => {
     const fetchProducts = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('/api/prisma/productss',{
+        const response = await axios.get('/api/prisma/productss', {
           headers: { Authorization: `Bearer ${token}` },
-        }); 
+        });
         setProducts(response.data);
       } catch (err) {
         setError('Failed to fetch products');
@@ -53,6 +54,18 @@ const BuyerDashboard: React.FC = () => {
 
     fetchProducts();
     fetchCart();
+
+    // Re-fetch cart items on route change
+    const handleRouteChange = () => {
+      fetchCart(); // Refetch cart when the route changes
+    };
+
+    router.events.on('routeChangeComplete', handleRouteChange);
+
+    // Cleanup the event listener
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
   }, [router]);
 
   const handleAddToCart = async (productId: number) => {
@@ -137,7 +150,21 @@ const BuyerDashboard: React.FC = () => {
               </li>
             ))}
           </ul>
+        {/* </div>
+        
+        Add "Go to Cart" button
+        <div className="mt-6"> */}
+          <Link href="/buyer/cart">
+            <button className="bg-green-500 text-white px-6 py-2 rounded">Go to Cart</button>
+          </Link>
         </div>
+      </div>
+      <div className="min-h-screen bg-gray-600">
+        <footer className="bg-stone-900 text-white p-4">
+          <div className="container mx-auto flex justify-between items-center">
+            <Link href="/">Logout</Link>
+          </div>
+        </footer>
       </div>
     </Layout>
   );

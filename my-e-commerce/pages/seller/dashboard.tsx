@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
+import Link from 'next/link';
 
 interface Product {
   id: number;
@@ -259,6 +260,13 @@ const SellerDashboard: React.FC = (props) => {
             ))}
           </ul>
         </div>
+      </div>
+      <div className="min-h-screen bg-gray-600">
+      <footer className="bg-stone-900 text-white p-4">
+        <div className="container mx-auto flex justify-between items-center">
+          <Link href="/">Logout</Link>
+          </div>
+          </footer>
       </div>
     </Layout>
   );

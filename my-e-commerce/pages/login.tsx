@@ -77,7 +77,7 @@ const Login: React.FC = (props) => {
             </Link>
           </div>
         </div>
-      </div>
+        </div>
     </Layout>
   );
 };

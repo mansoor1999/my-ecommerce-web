@@ -6,10 +6,10 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const isAuthenticated = false; // Replace with actual authentication logic
+  const isAuthenticated = false; 
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className=" bg-gray-600">
       <header className="bg-blue-500 text-white p-4">
         <div className="container mx-auto flex justify-between items-center">
           <Link href="/">Home</Link>
@@ -17,13 +17,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <ul className="flex space-x-4">
               {!isAuthenticated ? (
                 <>
-                  <li><Link href="/login">Login</Link></li>
-                  <li><Link href="/signup">Sign Up</Link></li>
+                  {/* <li><Link href="/login">Login</Link></li>
+                  <li><Link href="/signup">Sign Up</Link></li> */}
                 </>
               ) : (
                 <>
-                  <li><Link href="/cart">Cart</Link></li>
-                  <li><Link href="/seller/dashboard">Seller Dashboard</Link></li>
+                  {/* <li><Link href="/cart">Cart</Link></li> */}
+                  {/* <li><Link href="/seller/dashboard">Seller Dashboard</Link></li> */}
                 </>
               )}
             </ul>
@@ -34,7 +34,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
       </main>
       <footer className="bg-gray-800 text-white p-4 text-center">
-        &copy; 2024 My E-commerce App
+        &copy; 2024 My E-commerce App website
       </footer>
     </div>
   );

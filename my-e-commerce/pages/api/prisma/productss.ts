@@ -13,10 +13,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (!token) {
     return res.status(401).json({ message: 'Unauthorized: No token provided' });
   }
-
+ console.log("token",token);
   try {
     // Verify JWT token and extract user ID
     const decoded = jwt.verify(token, SECRET_KEY) as { id: number };
+    console.log("decoded",decoded);
     const sellerId = decoded.id;
     switch (method) {
       case 'GET':

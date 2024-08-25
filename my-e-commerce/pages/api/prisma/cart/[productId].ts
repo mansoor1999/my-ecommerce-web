@@ -9,6 +9,7 @@ const SECRET_KEY = process.env.SECRET_KEY || 'your-secret-key';
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'DELETE') {
     const { productId } = req.query;
+    console.log("req",req.url)
     const token = req.headers.authorization?.split(' ')[1];
 
     if (!token) {
@@ -17,11 +18,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
       const decoded = jwt.verify(token, SECRET_KEY) as any;
+      
       await prisma.cartItem.deleteMany({
-        where: {
-          productId: Number(productId),
-          userId: decoded.id,
-        },
+        // where: {
+        //   productId: Number(productId),
+        //   userId: decoded.id,
+        // },
       });
       res.status(200).json({ message: 'Product removed from cart' });
     } catch (error) {

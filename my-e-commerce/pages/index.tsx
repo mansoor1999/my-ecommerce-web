@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Layout from '../components/Layout';
 
-const Home: React.FC = () => {
+const Home: React.FC = (props) => {
   return (
     <Layout>
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
