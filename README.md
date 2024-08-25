@@ -148,8 +148,6 @@ https://my-ecommerce-website-app.vercel.app/
 
 ```
 
-###Summary
-
 
 
 
