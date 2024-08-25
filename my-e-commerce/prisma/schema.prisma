@@ -1,10 +1,10 @@
-// datasource db {
+// datasource db {    //Running in the local environment we have connect here
 //   provider = "postgresql"
 //   url      = env("DATABASE_URL")
 // }
 datasource db {
   provider = "postgresql"
-  url = env("DATABASE_URL") // uses connection pooling
+  url = env("DATABASE_URL") // uses connection pooling in the vercel app
   //directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 generator client {
