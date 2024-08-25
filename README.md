@@ -26,6 +26,7 @@ This is a full-stack e-commerce application developed using Next.js for the fron
 - Node.js (v16.x or later)
 - PostgreSQL (v12.x or later)
 - npm or yarn
+- postman (for api testing)
 
 ## Setup Instructions
 
@@ -61,6 +62,83 @@ npm run dev
 ```
 Open your browser and navigate to http://localhost:3000
 ```
+## Authentication
+POST /auth/signup: Sign up a new user (buyer or seller).
+POST /auth/login: Log in an existing user.
+##Seller Endpoints
+POST /productss: Add a new product (Only for sellers).
+PUT /products/:productId: Edit an existing product (Only for sellers).
+DELETE /products/:productId: Delete a product (Only for sellers).
+##Buyer Endpoints
+GET /productss: Get a list of products (search by name or category).
+POST /cart/add: Add a product to the cart.
+DELETE /cart/remove/:productId: Remove a product from the cart.
+DELETE /cart/empty: Empty the cart.
+
+## Pushing the code in GitHub
+To push your e-commerce project to GitHub, follow these steps. If you haven't already created a GitHub repository, you'll need to do that first. Then, use the following commands:
+
+1. Initialize a Git Repository (if you haven't already)
+Navigate to the root directory of your project and initialize a new Git repository:
+
+```
+git init
+```
+2. Add All Files to the Staging Area
+Add all your project files to the staging area:
+```
+git add .
+```
+3. Commit Your Changes
+Commit the changes with a descriptive message:
+```
+git commit -m "Initial commit: Set up e-commerce full-stack application"
+```
+5. Create a New Repository on GitHub
+Go to GitHub.
+Click on the New button to create a new repository.
+Name your repository (e.g., ecommerce-fullstack-app).
+Optionally, add a description.
+Choose Public or Private based on your preference.
+Click Create repository.
+6. Link Your Local Repository to GitHub
+Copy the remote URL from your newly created GitHub repository and add it as a remote in your local repository:
+
+```
+git remote add origin https://github.com/your-username/ecommerce-fullstack-app.git
+```
+Replace your-username with your GitHub username.
+
+6. Push Your Changes to GitHub
+Push the committed changes to the GitHub repository:
+
+```
+git push -u origin main
+```
+If your default branch is named master (instead of main), use:
+```
+git push -u origin master
+
+```
+7. Verify Your Changes on GitHub
+Go to your GitHub repository page. You should see all your project files uploaded there.
+
+Optional Git Commands for Further Updates
+To add more changes later:
+
+```
+git add .
+git commit -m "Descriptive message about the changes"
+git push
+```
+To create a new branch and push changes:
+
+```
+git checkout -b new-feature
+git add .
+git commit -m "Add new feature"
+git push -u origin new-feature
+```
 
 ## Acces the web globally deployed in the Vercel
 
@@ -69,5 +147,9 @@ Deployed link:--
 https://my-ecommerce-website-app.vercel.app/
 
 ```
+
+###Summary
+
+
 
 
