@@ -141,7 +141,12 @@ git push -u origin new-feature
 ```
 
 ## Acces the web globally deployed in the Vercel
-
+Open the Vercel website
+```
+https://vercel.com/login
+```
+Link the Github account to the vercel wesite and Here We can Import the Repositories in the Vercel
+Here We can connect the POSTGRES globally where we can perform the operations in below deployed link.
 Deployed link:-- 
 ```
 https://my-ecommerce-website-app.vercel.app/
